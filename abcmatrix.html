@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ABC Matrix</title>
+        <style>
+            td{border:3px solid; width: 30px}
+            td{background-color: rgb(182, 243, 182)}
+            th{border:3px solid; width: 30px}
+            th{background-color: aqua}
+            * {
+                box-sizing: border-box;
+                }
+            .column {
+            float: left;
+            width: auto;
+            padding: 5px;
+            }
+            .row::after {
+            content: "";
+            clear: both;
+            display: table;
+            }
+            @media screen and (max-width: 600px) {
+            .column {
+                width: 50%;
+            }
+            }
+        </style>
+    </head>
+<body>
+    <div class="row">
+        <div class="column">
+    <table>
+        <h2>
+            <tr>
+                <th></th>
+                <th id="top1"></th>
+                <th id="top2"></th>
+                <th id="top3"></th>
+            </tr>
+          <tr>
+                <th id="left1"></th>
+                <td id="demo1"></td>
+                <td id="demo2"></td>
+                <td id="demo3"></td>
+          </tr>
+           <tr>
+                <th id="left2"></th>
+                <td id="demo4"></td>
+                <td id="demo5"></td>
+                <td id="demo6"></td>
+          </tr>
+          <tr>
+                <th id="left3"></th>
+                <td id="demo7"></td>
+                <td id="demo8"></td>
+                <td id="demo9"></td>
+          </tr>
+          </h2>
+          </table></div>
+          <div class="column">
+          <table>
+            <h2>
+                <tr>
+                    <th></th>
+                    <th id="top4"></th>
+                    <th id="top5"></th>
+                    <th id="top6"></th>
+                </tr>
+              <tr> 
+                    <th id="left4"></th>
+                    <td id="demo10"></td>
+                    <td id="demo11"></td>
+                    <td id="demo12"></td>
+              </tr>
+               <tr>
+                    <th id="left5"></th>
+                    <td id="demo13"></td>
+                    <td id="demo14"></td>
+                    <td id="demo15"></td>
+              </tr>
+              <tr>
+                    <th id="left6"></th>
+                    <td id="demo16"></td>
+                    <td id="demo17"></td>
+                    <td id="demo18"></td>
+              </tr>
+              </h2>
+              </table></div>
+              </div>
+              <br>
+              <div>
+              <form id="forms"onsubmit="myFunction();">
+                <label>Answer : </label>
+                <input type="text" id="answer"><br><br>
+                <input type="submit" value="Submit">
+              </form>
+              </div>
+              <p id="demo100"></p>
+<script>
+var arr = [];
+var i = 0;
+while(arr.length < 9) {
+    var r = Math.floor(Math.random() * 999) + 1;
+    if(arr.indexOf(r) === -1) {
+        arr.push(r);
+        i++;
+    }
+}
+var j = 0;
+while(j < 9){
+    if (arr[j] < 10) {
+        arr[j] =  "00" + arr[j];
+        j++;
+    }
+    else if (arr[j] < 100) {
+        arr[j] =  "0" + arr[j];
+        j++;
+    }
+    else {
+        arr[j] = arr[j].toString();
+        j++;
+    }
+}
+console.log(arr);
+
+var array = [];
+var j = 0;
+while(array.length < 9) {
+    var s = arr[Math.floor(Math.random() * arr.length)];
+    if(array.indexOf(s) === -1) {
+        array.push(s);
+        j++;
+    }
+}
+console.log(array);
+
+var alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var alphabet1 = [];
+var numbers = ["1","2","3","4","5","6","7","8","9"];
+var numbers1 = [];
+
+var alp = 0;
+while(alphabet1.length < 6) {
+    var s = alphabet[Math.floor(Math.random() * alphabet.length)];
+    if(alphabet1.indexOf(s) === -1) {
+        alphabet1.push(s);
+        alp++;
+    }
+}
+
+var num = 0;
+while(numbers1.length < 6) {
+    var s = numbers[Math.floor(Math.random() * numbers.length)];
+    if(numbers1.indexOf(s) === -1) {
+        numbers1.push(s);
+        num++;
+    }
+}
+
+document.getElementById("demo1").innerHTML = arr[0];
+document.getElementById("demo2").innerHTML = arr[1];
+document.getElementById("demo3").innerHTML = arr[2];
+document.getElementById("demo4").innerHTML = arr[3];
+document.getElementById("demo5").innerHTML = arr[4];
+document.getElementById("demo6").innerHTML = arr[5];
+document.getElementById("demo7").innerHTML = arr[6];
+document.getElementById("demo8").innerHTML = arr[7];
+document.getElementById("demo9").innerHTML = arr[8];
+document.getElementById("demo10").innerHTML = array[0];
+document.getElementById("demo11").innerHTML = array[1];
+document.getElementById("demo12").innerHTML = array[2];
+document.getElementById("demo13").innerHTML = array[3];
+document.getElementById("demo14").innerHTML = array[4];
+document.getElementById("demo15").innerHTML = array[5];
+document.getElementById("demo16").innerHTML = array[6];
+document.getElementById("demo17").innerHTML = array[7];
+document.getElementById("demo18").innerHTML = array[8];
+document.getElementById("left1").innerHTML = alphabet1[0];
+document.getElementById("left2").innerHTML = alphabet1[1];
+document.getElementById("left3").innerHTML = alphabet1[2];
+document.getElementById("left4").innerHTML = alphabet1[3];
+document.getElementById("left5").innerHTML = alphabet1[4];
+document.getElementById("left6").innerHTML = alphabet1[5];
+document.getElementById("top1").innerHTML = numbers1[0];
+document.getElementById("top2").innerHTML = numbers1[1];
+document.getElementById("top3").innerHTML = numbers1[2];
+document.getElementById("top4").innerHTML = numbers1[3];
+document.getElementById("top5").innerHTML = numbers1[4];
+document.getElementById("top6").innerHTML = numbers1[5];
+
+
+var a0 = alphabet1[0] + numbers1[0];
+var a1 = alphabet1[0] + numbers1[1];
+var a2 = alphabet1[0] + numbers1[2];
+var a3 = alphabet1[1] + numbers1[0];
+var a4 = alphabet1[1] + numbers1[1];
+var a5 = alphabet1[1] + numbers1[2];
+var a6 = alphabet1[2] + numbers1[0];
+var a7 = alphabet1[2] + numbers1[1];
+var a8 = alphabet1[2] + numbers1[2];
+
+var b0 = alphabet1[3] + numbers1[3];
+var b1 = alphabet1[3] + numbers1[4];
+var b2 = alphabet1[3] + numbers1[5];
+var b3 = alphabet1[4] + numbers1[3];
+var b4 = alphabet1[4] + numbers1[4];
+var b5 = alphabet1[4] + numbers1[5];
+var b6 = alphabet1[5] + numbers1[3];
+var b7 = alphabet1[5] + numbers1[4];
+var b8 = alphabet1[5] + numbers1[5];
+
+function myFunction() {
+    var result1;
+    var result2;
+    var answer;
+    var resu;
+    var res;
+    var res1;
+    var result3;
+    answer = document.getElementById("answer").value;
+    answer = answer.toUpperCase();
+    resu = answer.split("");
+    res = resu[0] + resu[1];
+    res1 = resu[2] + resu[3];
+
+if (res == a0) {
+    result1 = arr[0];
+}
+else if (res==a1) {
+    result1 = arr[1];
+}
+else if (res==a2) {
+    result1 = arr[2];
+}
+else if (res==a3) {
+    result1 = arr[3];
+}
+else if (res==a4) {
+    result1 = arr[4];
+}
+else if (res==a5) {
+    result1 = arr[5];
+}
+else if (res==a6) {
+    result1 = arr[6];
+}
+else if (res==a7) {
+    result1 = arr[7];
+}
+else if (res==a8) {
+    result1 = arr[8];
+}
+else {
+    alert("Answer wrong");
+    return
+}
+
+var result2 = array.indexOf(result1);
+if (result2==0) {
+    result3 = b0;
+}
+else if (result2==1) {
+    result3 = b1;
+}
+else if (result2==2) {
+    result3 = b2;
+}
+else if (result2==3) {
+    result3 = b3;
+}
+else if (result2==4) {
+    result3 = b4;
+}
+else if (result2==5) {
+    result3 = b5;
+}
+else if (result2==6) {
+    result3 = b6;
+}
+else if (result2==7) {
+    result3 = b7;
+}
+else {
+    result3 = b8;
+}
+
+if (res1 == result3) {
+    alert("Answer is correct\nSubmitted on " + myTime());
+}
+else {
+    alert("answer wrong");
+}
+}
+function myTime() {
+var today = new Date();
+var date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
+var hours = today.getHours();
+var minutes = today.getMinutes();
+var ampm = hours >= 12 ? 'pm' : 'am';
+hours = hours % 12;
+hours = hours ? hours : 12; // the hour '0' should be '12'
+minutes = minutes < 10 ? '0'+minutes : minutes;
+var time = hours + ":" + minutes + ":" + today.getSeconds() + " " + ampm;
+var dateTime = date+' // '+time;
+  return dateTime;
+}
+
+document.getElementById("demo100").innerHTML = "Page loaded on " + myTime();
+
+</script>
+
+</body>
+</html>
